@@ -29,16 +29,20 @@ Each error is stored as a markdown file under the `/errors` folder.
 Each error file follows this structure:
 
 ```markdown
-# ERR-YYYYMMDD-001 | Short Error Title
+#   Short Error Title
 
-## 📌 Category
+### Error code
+ERR-YYYYMMDD-001
+
+### 📌 Category
 Frontend | Backend | Database | DevOps | Other
 
-## 💻 Technology / Language
+### 💻 Technology / Language
 Example: Node.js v18, NestJS v10, Sequelize v6.37, MSSQL 2019
 
-## 🌍 Environment
+### 🌍 Environment
 Local / Staging / Production
+----
 
 ## ❌ Error Message
 
