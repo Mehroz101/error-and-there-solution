@@ -1,4 +1,7 @@
-# 🚨 ERR-20250911-001 · Sequelize / MSSQL Login Failure — **Password Must Be Changed**
+# 🚨 Sequelize / MSSQL Login Failure — **Password Must Be Changed**
+
+### Error Code
+ERR-20250911-001
 
 ### 🗂 Category  
 Database
