@@ -1,46 +1,47 @@
+# 🚨 ERR-20250911-001 · Sequelize / MSSQL Login Failure — **Password Must Be Changed**
 
-# ERR-20250911-001 | Sequelize MSSQL Login Failure (Password Must Be Changed)
-
-## 📌 Category
+### 🗂 Category  
 Database
 
-## 💻 Technology / Language
-Node.js v22, Sequelize v6.35, MSSQL Server 2019
+### 💻 Stack  
+Node.js 22 · Sequelize 6.35 · MSSQL Server 2019
 
-## 🌍 Environment
-Local
+### 🌐 Environment  
+Local Development
 
-## ❌ Error Message
-Unable to connect to the database: AccessDeniedError [SequelizeAccessDeniedError]:
-Login failed for user 'user1'. Reason: The password of the account must be changed.
+---
 
+## ❌ Error
+```
+Unable to connect to the database:
+SequelizeAccessDeniedError: Login failed for user 'user1'.
+Reason: The password of the account must be changed.
+```
 
-## 🔍 Cause
-- The SQL login `user1` had the flag **"must change password at next login"** enabled.  
-- Sequelize’s MSSQL driver (`tedious`) does not support interactive password change, so the connection failed immediately.
+---
 
-## ✅ Solution
-1. Open **SQL Server Management Studio (SSMS)** as an admin.  
-2. Navigate: `Server > Security > Logins > user1 > Properties`.  
-3. Reset the password.  
-4. **Uncheck** `User must change password at next login`.  
-5. Update Sequelize `.env` with the new password.  
-6. Restart the Node app and test the connection.  
+## 🔎 Root Cause
+- SQL login **`user1`** was created with **“User must change password at next login”** enabled.  
+- Sequelize’s MSSQL driver (`tedious`) can’t handle interactive password changes, so authentication fails immediately.
 
-## 🔎 Verification
-- Ran `await sequelize.authenticate()` → ✅ Connection successful.  
+---
 
+## ✅ Resolution Steps
+1. **Open SSMS as an administrator.**  
+2. Go to **Server ➔ Security ➔ Logins ➔ user1 ➔ Properties**.  
+3. Reset the password to a secure value.  
+4. **Uncheck** “User must change password at next login.”  
+5. Update the new password in your Sequelize `.env`.  
+6. Restart the Node app and test.
 
+---
 
+## 🔐 Verification
+```js
+await sequelize.authenticate(); // ✅ Connection successful
+```
 
+---
 
-
-
-
-
-
-
-
-
-
-
+### 💡 Tip
+For production, enforce password rotation via policy or a secrets manager (e.g., Azure Key Vault, AWS Secrets Manager) rather than SQL’s “must change” flag, which breaks automated services.
