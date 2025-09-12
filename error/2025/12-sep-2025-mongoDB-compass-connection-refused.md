@@ -1,4 +1,8 @@
-# 🚨 ERR-20250912-001 · **MongoDB Compass Connection Refused**
+# 🚨  **MongoDB Compass Connection Refused**
+
+### Error code
+ERR-20250912-001
+
 
 ### 🗂 Category
 Database
