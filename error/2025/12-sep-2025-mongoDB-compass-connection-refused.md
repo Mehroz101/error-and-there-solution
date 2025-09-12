@@ -19,9 +19,7 @@ Initially, MongoDB was not even installed on the system, which led to Compass fa
 
 ## ✅ Solution
 **Step 1:** Verified MongoDB was not installed (`mongod --version` returned "not recognized").  
-**Step 2:** Installed MongoDB Community Server :
-
-https://www.mongodb.com/try/download/community
+**Step 2:** Installed MongoDB Community Server :[click here](https://www.mongodb.com/try/download/community)
 
 
 **Step 3:** Confirmed installation directory:
