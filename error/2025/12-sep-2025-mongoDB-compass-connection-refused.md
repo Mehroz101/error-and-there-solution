@@ -34,12 +34,8 @@ connect ECONNREFUSED ::1:27017
 2. **Install MongoDB Community Server**: [Download](https://www.mongodb.com/try/download/community).
 3. **Confirm installation directory**: `C:\Program Files\MongoDB\Server\8.0\bin`.
 4. **Add MongoDB bin folder to PATH** for CLI access.
-5. **Start MongoDB service manually**:
-   ```cmd
-   net start "MongoDB Server"
-   ```
-6. **Verify service is running** and listening on port `27017`.
-7. **Connect via Compass** using URI:
+5. **Verify service is running** and listening on port `27017`.
+6. **Connect via Compass** using URI:
    ```
    mongodb://localhost:27017/monogodbsite
    ```
